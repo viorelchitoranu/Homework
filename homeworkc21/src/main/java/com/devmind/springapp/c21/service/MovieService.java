@@ -3,6 +3,7 @@ package com.devmind.springapp.c21.service;
 import com.devmind.springapp.c21.repository.FilmRepository;
 import com.devmind.springapp.c21.stocareJson.Film;
 import com.devmind.springapp.c21.stocareJson.Pagina;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 
@@ -20,7 +21,8 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MovieService {
 
-    private static final String READ_ACCES_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNGQyYzgxZDI4MzgyNGVhZjNiNWI5Zjk1ZjBmZTgxMCIsIm5iZiI6MTc2MzE5NjAyNC45MDcsInN1YiI6IjY5MTgzYzc4ZDA0NTBmYTMwNjNhNGM5MiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4SosVwUcJoMkO5LKMHVfEkMepkwoAXaAtUTiWZfFfFQ";
+    @Value("${tmdb.read-access-token}")
+    private String READ_ACCES_TOKEN;
 
     private static final String TMDB_MOVIES_URL = "https://api.themoviedb.org/3/discover/movie";
 
